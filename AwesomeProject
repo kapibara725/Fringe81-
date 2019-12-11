@@ -1,0 +1,78 @@
+import React,{Component}from 'react';
+import {StyleSheet,View,Alert,Text,StatusBar,TextInput,Image,TouchableOpacity} from 'react-native';
+import {Header} from 'react-native-elements';
+
+export default class App extends Component {
+  constructor(props){
+    super(props);
+  }
+
+  render(){
+    return (
+      <View>
+        <StatusBar barStyle="light" hidden={false}/>
+        <Header
+          leftComponent={
+            <TouchableOpacity
+                    onPress={
+                      this.doActionLeft
+                      }>
+                   <Image 
+                    style={styles.image}
+                    source={require('./assets/image.jpg')}
+                    />
+            </TouchableOpacity>         
+          }
+          centerComponent={{
+            text:"拍手できる:100 　拍手された:0",
+            style:styles.header
+          }}
+          rightComponent={{
+            
+          }}
+          outerContainerStyles={{
+            height:100,backgroundColor:'#dd0000'
+          }}
+          innerContainerStyles={{
+            backgroundColor:'#dd0000'
+          }}
+        />
+        <View style={styles.base}>
+          <Text style={styles.title}>Layout</Text>
+          <Text style={styles.message}>This is sample message.
+          </Text>
+        </View>
+       </View> 
+    );
+  }
+
+    doActionLeft  = ()=>{Alert.alert('～Please Select User～');
+}
+
+const styles = StyleSheet.create({
+  base:{
+	padding:20	
+},
+header:{
+color:'white',
+fontSize: 15,
+fontWeight:'bold',
+},
+title:{
+	padding:10,
+	color:'red',
+	fontSize:48,
+},
+message:{
+	padding:10,
+	color:'blue',
+	fontSize:24,
+},
+  image:{
+    width:50,
+    height:50,
+    borderStyle:'solid',
+    borderWidth:1,
+    borderColor:'brack',
+  },
+});
